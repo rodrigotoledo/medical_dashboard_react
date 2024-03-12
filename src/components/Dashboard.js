@@ -6,6 +6,7 @@ import '../styles/agenda.css';
 import '../styles/styles.css';
 import '../styles/event.css';
 import '../styles/month.css';
+import SelectPatient from './SelectPatient';
 
 const localizer = momentLocalizer(moment)
 
@@ -26,8 +27,7 @@ const Dashboard = () => {
     <div>
       <div className="flex flex-col md:flex-row">
         <div className='bg-white flex md:w-1/4 w-full md:h-screen text-center flex-row md:flex-col p-2'>
-          <label className='font-bold flex-wrap text-nowrap p-2'>Medical Test</label>
-          <select className='bg-white w-full border rounded-sm p-2'><option>Patients</option></select>
+          <SelectPatient />
         </div>
         <div className='md:w-3/4 md:flex-auto p-4 bg-gray-100'>
           <h1 className='font-bold hidden md:block'>Dashboard</h1>
