@@ -5,8 +5,8 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import '../styles/tabs.css';
 
-const DashboardPatient = () => {
-  let { client_id } = useParams();
+const PatientsDashboard = () => {
+  let { patient_id } = useParams();
 
   return (
     <div>
@@ -15,7 +15,7 @@ const DashboardPatient = () => {
           <SelectPatient />
         </div>
         <div className='md:w-3/4 md:flex-auto p-4 bg-gray-100'>
-          <h1 className='font-bold hidden md:block'>By Patient {client_id}</h1>
+          <h1 className='font-bold hidden md:block'>By Patient {patient_id}</h1>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-white p-4 rounded-md">
@@ -100,4 +100,4 @@ const DashboardPatient = () => {
   )
 }
 
-export default DashboardPatient;
+export default PatientsDashboard;
