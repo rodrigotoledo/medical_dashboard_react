@@ -2,19 +2,22 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import Dashboard from './components/Dashboard';
-import DashboardPatient from './components/DashboardPatient';
+import Dashboard from './pages/Dashboard';
+import PatientsDashboard from './pages/PatientsDashboard';
+
 
 function App() {
   return (
-    <Router>
-      <div className="w-full h-screen bg-gray-100">
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/by_patient/:client_id" element={<DashboardPatient />} />
-        </Routes>
-      </div>
-    </Router>
+    <>
+      <Router>
+        <div className="w-full h-screen bg-gray-100">
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/by_patient/:patient_id" element={<PatientsDashboard />} />
+          </Routes>
+        </div>
+      </Router>
+    </>
   );
 }
 
