@@ -3,15 +3,15 @@ import { FaBriefcaseMedical, FaFileMedicalAlt, FaFileExcel, FaCalendarCheck, FaP
 
 const getAppointmentIcon = (appointment) => {
   if (appointment.type) {
-    if(appointment.type == 'checkUp'){
+    if(appointment.type === 'checkUp'){
       return <FaCalendarCheck />
-    }else if(appointment.type == 'followUp'){
+    }else if(appointment.type === 'followUp'){
       return <FaPlusCircle />
-    }else if(appointment.type == 'firstVisit'){
+    }else if(appointment.type === 'firstVisit'){
       return <FaFileMedicalAlt />
-    }else if(appointment.type == 'exam'){
+    }else if(appointment.type === 'exam'){
       return <FaBriefcaseMedical />
-    }else if(appointment.type == 'surgery'){
+    }else if(appointment.type === 'surgery'){
       return <FaFileExcel />
     }
   }
@@ -29,18 +29,25 @@ const formatAppointmentDate = (appointment) => {
   }
 };
 
+const formatDate = (date) => {
+  if(date !== undefined) {
+    date = new Date(date).toLocaleString()
+  }
+  return date;
+}
+
 const getAppointmentBackground = (appointment) => {
   if (appointment === undefined) {
     return 'bg-gray-100'; 
   }
 
-  if (appointment.status == 'absent') {
+  if (appointment.status === 'absent') {
     return 'bg-red-500';
-  } else if (appointment.status == 'completed') {
+  } else if (appointment.status === 'completed') {
     return 'bg-green-500';
   } else {
     return 'bg-gray-500';
   }
 };
 
-export { getAppointmentBackground, getAppointmentIcon, formatAppointmentDate };
+export { getAppointmentBackground, getAppointmentIcon, formatAppointmentDate, formatDate };

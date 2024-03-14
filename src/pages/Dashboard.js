@@ -21,7 +21,8 @@ const Dashboard = () => {
   const fetchAppointments = async () => {
     try {
       const response = await axios.get('/appointments');
-      setAppointments(response.data);
+      const sortedAppointments = response.data.sort((a, b) => new Date(a.startTime) - new Date(b.startTime));
+      setAppointments(sortedAppointments.reverse());
 
       const formattedEvents = response.data.map(appointment => ({
         title: appointment.description,
@@ -50,11 +51,11 @@ const Dashboard = () => {
 
   useEffect(() => {
     fetchAppointments();
-  }, [appointments])
+  }, [])
 
   useEffect(() => {
     fetchPatients();
-  }, [patients])
+  }, [])
 
   const handleReloadAppointments = () => {
     fetchAppointments();
@@ -82,7 +83,7 @@ const Dashboard = () => {
                 startAccessor="start"
                 endAccessor="end"
                 style={{ height: 500 }}
-                onView={(newDate) => {console.log(newDate)}}
+                onView={(newDate) => {}}
               />
             </div>
           </div>

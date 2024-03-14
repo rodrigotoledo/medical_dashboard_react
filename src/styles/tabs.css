@@ -7,10 +7,11 @@
   background-color:#b6bab7;
   border-radius: 5px 5px 0 0;
 }
+
 .react-tabs__tab--selected{
   background-color: #FFF !important;
-  border: 1px solid #000 !important;
-  border-bottom: 0 !important;
+  border: 0px!important;
+  outline: none;
 }
 .react-tabs__tab-panel{
   background-color: #FFF !important;
@@ -31,6 +32,7 @@
   border-radius: 5px 5px 0 0;
 }
 
+
 .tab-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -43,4 +45,8 @@
 
 .half-row {
   grid-column: 2;
+}
+
+.cursor {
+  cursor: pointer !important
 }
